@@ -124,7 +124,7 @@ export default function Home() {
                     height="16" 
                     className="text-zinc-100"
                   />
-                  <span className="font-bold text-base sm:text-sm">AIdelBienestar™</span>
+                  <span className="font-bold text-base sm:text-sm">AIdelBienestar</span>
                 </div>
                 <span className="font-normal">Desarrollado por</span>
                  <a href="https://www.artmichel.com/" target="_blank" rel="noopener noreferrer" className="font-semibold text-white hover:text-white transition-all -ml-1 mr-2 align-middle">Art Michel</a>
@@ -179,7 +179,7 @@ export default function Home() {
                       height="16" 
                       className="text-zinc-100"
                     />
-                    <span className="font-bold text-base sm:text-sm">AIdelBienestar™</span>
+                    <span className="font-bold text-base sm:text-sm">AIdelBienestar</span>
                   </div>
                   <span className="font-normal">Desarrollado por</span>
                   <a href="https://www.artmichel.com/" target="_blank" rel="noopener noreferrer" className="font-semibold text-white hover:text-white transition-all -ml-1 mr-2 align-middle">Art Michel</a>
