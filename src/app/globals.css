@@ -1,0 +1,343 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Dynamic viewport variables - inicializadas por JavaScript */
+  --viewport-height: 100vh;
+  --viewport-width: 100vw;
+  --initial-viewport-height: 100vh;
+  --is-keyboard-open: 0;
+  --scale-factor: 1;
+  
+  /* Dynamic viewport variables */
+  --screen-optical-compact-offset-amount: 0px;
+  --thread-content-margin: var(--spacing-4, 1rem);
+  --thread-content-max-width: 32rem;
+  --sidebar-rail-width: 260px;
+  --header-height: 60px;
+  --footer-height: 120px;
+  
+  /* Spacing system */
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.25rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-10: 2.5rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+  --spacing-20: 5rem;
+  --spacing-24: 6rem;
+  
+  /* Shadow system */
+  --sharp-edge-top-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --sharp-edge-bottom-shadow: 0 -1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+/* Configuración base del viewport dinámico */
+html {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+html.viewport-reduced {
+  height: var(--viewport-height);
+  min-height: var(--viewport-height);
+}
+
+body {
+  @apply bg-bozo-dark text-zinc-100;
+  font-family: var(--font-geist-sans, sans-serif);
+  height: var(--viewport-height);
+  min-height: var(--viewport-height);
+  max-height: var(--viewport-height);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1), min-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: height, min-height;
+}
+
+/* Clase para viewport dinámico */
+.viewport-dynamic {
+  height: var(--viewport-height);
+  min-height: var(--viewport-height);
+}
+
+/* Contenido principal que se adapta al viewport */
+.viewport-content {
+  height: var(--viewport-height);
+  min-height: var(--viewport-height);
+  transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1), min-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: height, min-height;
+}
+
+/* Estados específicos cuando el teclado está abierto */
+.viewport-reduced .viewport-content {
+  height: var(--viewport-height);
+  min-height: var(--viewport-height);
+  max-height: var(--viewport-height);
+}
+
+/* Asegurar que el hero no empuje el layout al abrir teclado */
+.welcome-hero {
+  overflow: hidden;
+}
+.welcome-logo {
+  display: block;
+  max-width: clamp(240px, 60vw, 520px);
+  height: auto;
+  max-height: calc(var(--viewport-height) * 0.22);
+  object-fit: contain;
+}
+
+/* Ocultar el hero/logo cuando el teclado esté abierto en móviles */
+@media (max-width: 768px) {
+  .viewport-reduced .welcome-hero { display: none !important; }
+  .viewport-reduced .welcome-logo { display: none !important; }
+}
+
+/* Transiciones suaves para elementos principales */
+.viewport-dynamic * {
+  transition: height 0.3s ease, max-height 0.3s ease, min-height 0.3s ease;
+}
+
+/* Optimizaciones específicas para iOS */
+@supports (-webkit-touch-callout: none) {
+  body {
+    min-height: -webkit-fill-available;
+    height: -webkit-fill-available;
+  }
+  
+  .viewport-dynamic {
+    min-height: -webkit-fill-available;
+    height: -webkit-fill-available;
+  }
+  
+  .viewport-content {
+    min-height: -webkit-fill-available;
+    height: -webkit-fill-available;
+  }
+  
+  /* Manejo de safe area para dispositivos con notch */
+  body {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+}
+
+/* Optimizaciones específicas para Android */
+@supports not (-webkit-touch-callout: none) {
+  body {
+    touch-action: manipulation;
+  }
+}
+
+/* Container queries setup */
+
+/* Scroll indicators and shadows */
+.content-fade {
+  position: relative;
+  isolation: isolate;
+}
+
+.vertical-scroll-fade-mask {
+  mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+/* Smooth transitions */
+.motion-safe-transition-opacity {
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.motion-safe-duration-150 {
+  transition-duration: 150ms;
+}
+
+.motion-safe-steps {
+  transition-timing-function: steps(1, start);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6b7280;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* Branding: color acento para AIdelBienestar */
+.bozo-accent { color: #660636; }
+.bg-bozo { background-color: #660636; }
+.bg-bozo-light { background-color: #8a0848; }
+.bg-bozo-dark { background-color: #3f0320; }
+.text-bozo { color: #660636; }
+.ring-bozo { --tw-ring-color: #660636; }
+
+/* Mobile viewport fixes */
+@supports (-webkit-touch-callout: none) {
+  /* iOS Safari */
+  .min-h-screen {
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* Prevent zoom on input focus on mobile */
+@media screen and (max-width: 768px) {
+  input[type="text"] {
+    font-size: 16px;
+  }
+  
+  /* Asegurar que los inputs no causen zoom */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="url"],
+  textarea,
+  select {
+    font-size: 16px !important;
+    transform-origin: left top;
+  }
+}
+
+/* Touch-friendly buttons */
+.touch-h-10 {
+  height: 2.5rem;
+}
+
+.touch-w-10 {
+  width: 2.5rem;
+}
+
+/* Focus styles for accessibility */
+.focus-visible-outline:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Loading states */
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Utilidades específicas para viewport dinámico */
+.h-viewport {
+  height: var(--viewport-height);
+  min-height: var(--viewport-height);
+}
+
+.min-h-viewport {
+  min-height: var(--viewport-height);
+}
+
+.max-h-viewport {
+  max-height: var(--viewport-height);
+}
+
+.w-viewport {
+  width: var(--viewport-width);
+}
+
+/* Optimizaciones para elementos que deben mantenerse visibles */
+.viewport-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* Manejo de elementos que deben reposicionarse cuando el teclado aparece */
+.viewport-adaptive {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Utilidades para debugging del viewport */
+.viewport-debug {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  font-size: 12px;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+/* Optimizaciones para performance */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Asegurar que el contenido principal use todo el espacio disponible */
+#__next {
+  height: 100%;
+  min-height: 100%;
+}
+
+/* Manejo de overscroll para evitar efectos no deseados */
+body {
+  overscroll-behavior: contain;
+}
+
+/* Optimizaciones para WebKit */
+@supports (-webkit-appearance: none) {
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "name": "AIdelBienestar - AI del Bienestar",
+  "short_name": "AIdelBienestar",
+  "description": "La primera inteligencia artificial creada para el pueblo. Chatbot humorístico que responde mal, confunde y no sabe nada... pero con actitud.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#18181b",
+  "theme_color": "#18181b",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "es-MX",
+  "categories": ["entertainment", "productivity", "utilities"],
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "AIdelBienestar - Chatbot humorístico mexicano"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Nueva conversación",
+      "short_name": "Chat",
+      "description": "Iniciar una nueva conversación con AIdelBienestar",
+      "url": "/",
+      "icons": [
+        {
+          "src": "/favicon.ico",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+} 

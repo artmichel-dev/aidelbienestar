@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://bozogpt.com/sitemap.xml
+
+# Crawl-delay para ser respetuoso con el servidor
+Crawl-delay: 1
+
+# Permitir indexación de todas las páginas
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+# Permitir acceso a recursos estáticos
+Allow: /favicon.ico
+Allow: /main-bienestar.jpg
+Allow: /browserconfig.xml 
