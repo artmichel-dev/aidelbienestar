@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
 import Image from "next/image";
+import { LogoButton } from "./components/LogoButton";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -104,20 +105,7 @@ export default function RootLayout({
         <div className="fixed top-0 left-0 z-30">
           <div className="touch:px-1.5 px-2">
             <div className="h-16 flex items-center">
-              <Link 
-                aria-label="AIdelBienestar" 
-                className="text-zinc-100 no-draggable hover:bg-white/10 focus-visible:bg-white/10 touch:h-12 touch:w-12 flex h-12 w-12 items-center justify-center rounded-lg focus-visible:outline-0 disabled:opacity-50 transition-colors duration-200" 
-                href="/" 
-                data-discover="true"
-              >
-                <Image 
-                  src="/bozogpt-icon.svg" 
-                  alt="AIdelBienestar" 
-                  width="40" 
-                  height="40" 
-                  className="text-zinc-100"
-                />
-              </Link>
+              <LogoButton />
             </div>
           </div>
         </div>

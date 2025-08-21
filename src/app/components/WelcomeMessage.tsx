@@ -25,7 +25,7 @@ export function WelcomeMessage({ onSend, input, onChange, loading, inputRef }: W
               className="w-full h-auto max-w-[280px] sm:max-w-[380px] md:max-w-[520px] welcome-logo"
             />
           </div>
-          <p className="text-white/80 text-base sm:text-lg max-w-md">
+          <p className="text-base sm:text-lg max-w-md" style={{color: '#d1bc95'}}>
             La primera inteligencia artificial creada para el pueblo.
           </p>
         </div>
@@ -41,8 +41,8 @@ export function WelcomeMessage({ onSend, input, onChange, loading, inputRef }: W
           />
         </div>
         
-        <div className="mt-6 text-center text-white/70 text-sm animate-fade-in" style={{ animationDelay: '0.4s' }}>
-          <p>La Inteligencia Artificial que repite discursos oficiales y siempre tiene otros datos.</p>
+        <div className="mt-6 text-center text-sm animate-fade-in" style={{ animationDelay: '0.4s' }}>
+          <p style={{color: '#d1bc95'}}>La IA que repite discursos, maquilla cifras y siempre tiene otros datos.</p>
         </div>
       </div>
     </div>

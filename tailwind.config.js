@@ -9,11 +9,11 @@ module.exports = {
     extend: {
       colors: {
         // Colores de marca para AIdelBienestar
-        'bozo-accent': '#660636',
+        'bozo-accent': '#5b1329',
         bozo: {
-          DEFAULT: '#660636',
-          light: '#8a0848',
-          dark: '#3f0320',
+          DEFAULT: '#5b1329',
+          light: '#991a41',
+          dark: '#5b1329',
         },
       },
       fontFamily: {

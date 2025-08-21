@@ -1,19 +1,19 @@
 # AI del Bienestar – AIdelBienestar
 
-> "The first AI trained with public education and Mexican TV."
+> "La primera IA entrenada con educación pública y televisión mexicana."
 
-A humorous, sarcastic, and absurd chatbot built with Next.js (App Router), TailwindCSS, and OpenAI API. AIdelBienestar always answers with creative, funny, or nonsensical responses whose only purpose is to say "I don't know"—never anything useful or true. Inspired by the ChatGPT UI, but with a comic twist.
+Un chatbot humorístico y satírico construido con Next.js (App Router), TailwindCSS y OpenAI API. AIdelBienestar es la primera IA creada para el pueblo que repite discursos oficiales, maquilla cifras y siempre tiene "otros datos". Inspirado en la interfaz de ChatGPT, pero con un toque de sátira política mexicana.
 
 ---
 
 ## 🚀 Features
 
-- **Always Absurd**: Never gives useful or true answers—only creative, funny, or sarcastic "I don't know" responses.
-- **ChatGPT-like UI**: Minimal, dark mode, responsive, and mobile-friendly.
-- **Multilingual**: Detects user language and responds accordingly.
-- **No login, no persistence**: All chat is local and resets on reload.
-- **OpenAI API Proxy**: Secure backend proxy, API key never exposed to frontend.
-- **Branding**: Custom header, icons, and footer with credits and social links.
+- **Sátira Política**: Responde con discursos oficiales, datos maquillados y siempre tiene "otros datos" alternativos.
+- **Interfaz Familiar**: UI inspirada en ChatGPT, modo oscuro, responsiva y amigable para móviles.
+- **Multiidioma**: Detecta el idioma del usuario y responde en consecuencia.
+- **Sin registro, sin persistencia**: Todo el chat es local y se reinicia al recargar.
+- **Proxy OpenAI API**: Backend seguro como proxy, la clave API nunca se expone al frontend.
+- **Temática Mexicana**: Encabezado personalizado, iconos y footer con créditos y enlaces sociales.
 
 ---
 
@@ -25,7 +25,7 @@ A humorous, sarcastic, and absurd chatbot built with Next.js (App Router), Tailw
 
 ## 🌐 Live Preview
 
-Puedes probar AIdelBienestar en: [https://www.bozogpt.com/](https://www.bozogpt.com/)
+Puedes probar AIdelBienestar en: [https://www.aidelbienestar.com/](https://www.aidelbienestar.com/)
 
 ---
 
@@ -63,8 +63,8 @@ Puedes probar AIdelBienestar en: [https://www.bozogpt.com/](https://www.bozogpt.
 
 ### 1. Clone the repo
 ```bash
-git clone https://github.com/YOUR-USERNAME/ignorancia-artificial.git
-cd ignorancia-artificial
+git clone https://github.com/YOUR-USERNAME/aidelbienestar.git
+cd aidelbienestar
 ```
 
 ### 2. Install dependencies
@@ -101,10 +101,10 @@ npm start
 
 ---
 
-## 🧠 How it works
-- The frontend detects the user's language and sends it to the backend.
-- The backend (`/api/chat`) acts as a secure proxy to OpenAI, injecting a system prompt that forces absurd, comic, and "I don't know" answers in the user's language.
-- The frontend UI is inspired by ChatGPT, but with a comic, minimal, and dark look.
+## 🧠 Cómo funciona
+- El frontend detecta el idioma del usuario y lo envía al backend.
+- El backend (`/api/chat`) actúa como un proxy seguro hacia OpenAI, inyectando un prompt del sistema que fuerza respuestas de sátira política, discursos oficiales y "otros datos" en el idioma del usuario.
+- La interfaz está inspirada en ChatGPT, pero con un look satírico, minimalista y oscuro enfocado en el humor político mexicano.
 
 ---
 
@@ -139,12 +139,12 @@ This project is licensed under the MIT License. See [LICENSE](LICENSE) for detai
 
 ---
 
-## 🤡 Example answers
+## 🇲🇽 Ejemplos de respuestas
 
-- "Hmm… I have absolutely no idea, but it sounds complicated."
-- "I was trained on soap operas and memes, so I have no clue."
-- "Let me check with my ignorance… nope, still don't know."
-- "My answer is yes, but also no. In summary: I don't know."
+- "Según mis otros datos, la economía va muy bien, solo que no se nota."
+- "Me entrenaron con conferencias mañaneras, así que tengo datos alternativos."
+- "La culpa es de la mafia del poder, pero también del neoliberalismo."
+- "Tengo información de que todo está bajo control, aunque parezca lo contrario."
 
 ---
 

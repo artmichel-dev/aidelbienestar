@@ -31,7 +31,8 @@ export const ChatInput = forwardRef<HTMLInputElement, ChatInputProps>(
           <input
             ref={ref}
             type="text"
-            className="flex-1 rounded-3xl px-5 py-4 bg-transparent text-zinc-100 focus:outline-none placeholder-white/60 text-base sm:text-lg border-none shadow-none focus-visible-outline transition-all duration-200"
+            className="flex-1 rounded-3xl px-5 py-4 bg-transparent focus:outline-none text-base sm:text-lg border-none shadow-none focus-visible-outline transition-all duration-200 placeholder-[#d1bc95]/60"
+            style={{color: '#d1bc95'}}
             placeholder={placeholder}
             value={value}
             onChange={(e) => onChange(e.target.value)}

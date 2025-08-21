@@ -3,12 +3,12 @@ import React from 'react';
 export function LoadingMessage() {
   return (
     <div className="flex justify-start animate-fade-in">
-      <div className="rounded-2xl px-4 py-3 max-w-[85%] sm:max-w-[80%] bg-white/5 text-white border border-white/10 shadow-lg">
+      <div className="rounded-2xl px-4 py-3 max-w-[85%] sm:max-w-[80%] bg-white/5 border border-white/10 shadow-lg" style={{color: '#d1bc95'}}>
         <div className="flex items-center gap-2 mb-2">
-          <span className="text-xs font-medium px-2 py-1 rounded-full bg-white/10 text-white">
+          <span className="text-xs font-medium px-2 py-1 rounded-full bg-white/10" style={{color: '#d1bc95'}}>
             AIdelBienestar
           </span>
-          <span className="text-xs text-white/70">
+          <span className="text-xs" style={{color: '#d1bc95'}}>
             {new Date().toLocaleTimeString('es-MX', { 
               hour: '2-digit', 
               minute: '2-digit' 
