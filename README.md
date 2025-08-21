@@ -63,7 +63,7 @@ Puedes probar AIdelBienestar en: [https://www.aidelbienestar.com/](https://www.a
 
 ### 1. Clone the repo
 ```bash
-git clone https://github.com/YOUR-USERNAME/aidelbienestar.git
+git clone https://github.com/artmichel/aidelbienestar.git
 cd aidelbienestar
 ```
 
