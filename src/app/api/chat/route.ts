@@ -144,7 +144,7 @@ Mantén siempre el tono exagerado, ideologizado y torpemente oficialista.`;
         messages: openaiMessages,
         temperature: 0.6,
         top_p: 0.9,
-        max_tokens: 150,
+        max_tokens: 200,
       }),
     });
 
