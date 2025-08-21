@@ -11,7 +11,7 @@ interface ChatInputProps {
 }
 
 export const ChatInput = forwardRef<HTMLInputElement, ChatInputProps>(
-  ({ value, onChange, onSend, loading, placeholder = "Escribe tu duda… pero la culpa es de Calderón.", disabled = false, className = "" }, ref) => {
+  ({ value, onChange, onSend, loading, placeholder = "Pregunta lo que sea… igual fue Calderón.", disabled = false, className = "" }, ref) => {
     
     const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
       if (e.key === "Enter" && !e.shiftKey) {
@@ -31,7 +31,7 @@ export const ChatInput = forwardRef<HTMLInputElement, ChatInputProps>(
           <input
             ref={ref}
             type="text"
-            className="flex-1 rounded-3xl px-5 py-4 bg-transparent focus:outline-none text-base sm:text-lg border-none shadow-none focus-visible-outline transition-all duration-200 placeholder-[#d1bc95]/60"
+            className="flex-1 rounded-3xl px-5 py-4 bg-transparent focus:outline-none text-sm sm:text-base border-none shadow-none focus-visible-outline transition-all duration-200 placeholder-[#d1bc95]/60"
             style={{color: '#d1bc95'}}
             placeholder={placeholder}
             value={value}
