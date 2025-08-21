@@ -1,93 +1,103 @@
-# AI del Bienestar – AIdelBienestar
+# 🤖 AI del Bienestar – *AIdelBienestar*
 
-> "La primera IA entrenada con educación pública y televisión mexicana."
+> *"La primera IA entrenada con educación pública y televisión mexicana."*
 
-Un chatbot humorístico y satírico construido con Next.js (App Router), TailwindCSS y OpenAI API. AIdelBienestar es la primera IA creada para el pueblo que repite discursos oficiales, maquilla cifras y siempre tiene "otros datos". Inspirado en la interfaz de ChatGPT, pero con un toque de sátira política mexicana.
+Un chatbot humorístico y satírico construido con **Next.js (App Router)**, **TailwindCSS** y la **API de OpenAI**.
+**AIdelBienestar** es la primera inteligencia artificial diseñada *para el pueblo*: repite discursos oficiales, maquilla cifras y siempre tiene *otros datos*.
 
----
-
-## 🚀 Features
-
-- **Sátira Política**: Responde con discursos oficiales, datos maquillados y siempre tiene "otros datos" alternativos.
-- **Interfaz Familiar**: UI inspirada en ChatGPT, modo oscuro, responsiva y amigable para móviles.
-- **Multiidioma**: Detecta el idioma del usuario y responde en consecuencia.
-- **Sin registro, sin persistencia**: Todo el chat es local y se reinicia al recargar.
-- **Proxy OpenAI API**: Backend seguro como proxy, la clave API nunca se expone al frontend.
-- **Temática Mexicana**: Encabezado personalizado, iconos y footer con créditos y enlaces sociales.
+Inspirado en la interfaz de ChatGPT, pero con un toque de sátira política mexicana.
 
 ---
 
-## 📸 Screenshots
+## 🚀 Características principales
+
+* **Sátira política**: siempre responde con discursos oficiales, cifras maquilladas y *otros datos* alternativos.
+* **Interfaz familiar**: diseño inspirado en ChatGPT, modo oscuro, responsiva y lista para móviles.
+* **Soporte multiidioma**: detecta el idioma del usuario y responde en consecuencia.
+* **Privacidad total**: no requiere registro ni guarda conversaciones; todo se borra al recargar.
+* **Proxy seguro**: el backend funciona como intermediario hacia OpenAI, protegiendo tu clave API.
+* **Estilo mexicano**: encabezado personalizado, íconos, créditos y enlaces sociales.
+
+---
+
+## 📸 Captura de pantalla
 
 ![AIdelBienestar Screenshot](./screenshot.png)
 
 ---
 
-## 🌐 Live Preview
+## 🌐 Demo en línea
 
-Puedes probar AIdelBienestar en: [https://www.aidelbienestar.com/](https://www.aidelbienestar.com/)
-
----
-
-## 🛠️ Tech Stack
-
-- [Next.js 15 (App Router)](https://nextjs.org/)
-- [TailwindCSS](https://tailwindcss.com/)
-- [OpenAI API](https://platform.openai.com/docs/api-reference)
-- TypeScript
+Prueba AIdelBienestar aquí:
+👉 [https://www.aidelbienestar.com/](https://www.aidelbienestar.com/)
 
 ---
 
-## 📦 Project Structure
+## 🛠️ Tecnologías utilizadas
+
+* [Next.js 15 (App Router)](https://nextjs.org/)
+* [TailwindCSS](https://tailwindcss.com/)
+* [OpenAI API](https://platform.openai.com/docs/api-reference)
+* TypeScript
+
+---
+
+## 📦 Estructura del proyecto
 
 ```
 / (root)
 ├── src/
 │   ├── app/
-│   │   ├── page.tsx         # Main chat UI
-│   │   ├── layout.tsx       # App layout (header, footer)
-│   │   ├── globals.css      # Tailwind & global styles
+│   │   ├── page.tsx          # Interfaz principal del chat
+│   │   ├── layout.tsx        # Layout general (encabezado, pie de página)
+│   │   ├── globals.css       # Estilos globales con Tailwind
 │   │   └── api/
-│   │       └── chat/route.ts # API proxy to OpenAI
+│   │       └── chat/route.ts # Proxy hacia la API de OpenAI
 │   └── components/
-│       └── ChatMessage.tsx  # Chat message component
+│       └── ChatMessage.tsx   # Componente de mensajes del chat
 ├── tailwind.config.js
 ├── postcss.config.js
-├── .env.local               # Your OpenAI API key (not committed)
+├── .env.local                # Clave de API (no se sube al repo)
 └── README.md
 ```
 
 ---
 
-## ⚡ Getting Started
+## ⚡ Cómo empezar
 
-### 1. Clone the repo
+### 1. Clonar el repositorio
+
 ```bash
 git clone https://github.com/artmichel/aidelbienestar.git
 cd aidelbienestar
 ```
 
-### 2. Install dependencies
+### 2. Instalar dependencias
+
 ```bash
 npm install
 ```
 
-### 3. Set up your OpenAI API key
-Create a file called `.env.local` in the root folder:
+### 3. Configurar tu clave de OpenAI
+
+Crea un archivo **.env.local** en la raíz del proyecto con el contenido:
 
 ```
-OPENAI_API_KEY=your-api-key-here
+OPENAI_API_KEY=tu-clave-aqui
 ```
 
-> **Never share or commit your API key!**
+> ⚠️ **No compartas ni subas tu clave a GitHub.**
 
-### 4. Run the development server
+### 4. Iniciar el servidor de desarrollo
+
 ```bash
 npm run dev
 ```
-Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### 5. Build for production
+Luego abre [http://localhost:3000](http://localhost:3000) en tu navegador.
+
+### 5. Construir para producción
+
 ```bash
 npm run build
 npm start
@@ -95,63 +105,64 @@ npm start
 
 ---
 
-## 🔐 Environment Variables
+## 🔐 Variables de entorno
 
-- `OPENAI_API_KEY` – Your OpenAI API key (required, never exposed to frontend)
+* `OPENAI_API_KEY` – Clave privada de OpenAI (obligatoria, nunca expuesta en el frontend).
 
 ---
 
 ## 🧠 Cómo funciona
-- El frontend detecta el idioma del usuario y lo envía al backend.
-- El backend (`/api/chat`) actúa como un proxy seguro hacia OpenAI, inyectando un prompt del sistema que fuerza respuestas de sátira política, discursos oficiales y "otros datos" en el idioma del usuario.
-- La interfaz está inspirada en ChatGPT, pero con un look satírico, minimalista y oscuro enfocado en el humor político mexicano.
+
+1. El frontend detecta el idioma del usuario.
+2. El backend (`/api/chat`) actúa como proxy seguro hacia OpenAI.
+3. El prompt del sistema fuerza las respuestas con estilo de sátira política mexicana:
+   discursos oficiales, cifras alternas y los famosos *otros datos*.
+4. La interfaz, minimalista y en modo oscuro, se inspira en ChatGPT pero con un giro cómico y nacional.
 
 ---
 
-## ⚠️ Known Issues
+## ⚠️ Problemas conocidos
 
-### Opera Mobile Browser
-**Problem**: When the virtual keyboard appears in Opera mobile, the content may be pushed up and become partially hidden, leaving empty space at the bottom of the screen.
+### Navegador Opera Mobile
 
-**Status**: This is a known browser limitation/bug in Opera mobile. The app includes Opera-specific fixes (`OperaViewportJSFix.tsx`) but the issue may persist due to Opera's viewport handling.
-
-**Workaround**: For the best mobile experience, we recommend using Chrome, Firefox, or Edge on mobile devices.
-
-**Technical Details**: 
-- Opera mobile has inconsistent behavior with `window.innerHeight` and viewport units when the virtual keyboard is active
-- The app attempts to fix this with JavaScript viewport adjustments, but Opera may ignore these changes
-- This is not a bug in the application code, but a limitation of the Opera mobile browser
+* **Problema**: al abrir el teclado virtual, el contenido puede moverse hacia arriba y dejar un espacio vacío en la parte inferior.
+* **Estado**: bug conocido en Opera Mobile relacionado con el manejo del viewport.
+* **Solución temporal**: usar Chrome, Firefox o Edge para una mejor experiencia en móviles.
+* **Detalles técnicos**: Opera no maneja de forma consistente `window.innerHeight` ni las unidades de viewport con teclado activo. Se han aplicado parches en `OperaViewportJSFix.tsx`, pero la limitación es propia del navegador.
 
 ---
 
-## ✨ Credits
+## ✨ Créditos
 
-- **Developed by:** [Art Michel](https://www.artmichel.com/)
-- **GitHub:** [@artmichel-dev](https://github.com/artmichel-dev)
-- **X (Twitter):** [@artmichel_eth](https://x.com/artmichel_eth)
-- **Instagram:** [@artmichel](https://instagram.com/artmichel)
+* **Desarrollado por:** [Art Michel](https://www.artmichel.com/)
+* **GitHub:** [@artmichel-dev](https://github.com/artmichel-dev)
+* **X (Twitter):** [@artmichel\_eth](https://x.com/artmichel_eth)
+* **Instagram:** [@artmichel](https://instagram.com/artmichel)
 
 ---
 
-## 📄 License
+## 📄 Licencia
 
-This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+Este proyecto está bajo la licencia MIT. Consulta [LICENSE](LICENSE) para más detalles.
 
 ---
 
 ## 🇲🇽 Ejemplos de respuestas
 
-- "Según mis otros datos, la economía va muy bien, solo que no se nota."
-- "Me entrenaron con conferencias mañaneras, así que tengo datos alternativos."
-- "La culpa es de la mafia del poder, pero también del neoliberalismo."
-- "Tengo información de que todo está bajo control, aunque parezca lo contrario."
+* *"Según mis otros datos, la economía va muy bien, solo que no se nota."*
+* *"Me entrenaron con conferencias mañaneras, así que tengo datos alternativos."*
+* *"La culpa es de la mafia del poder, pero también del neoliberalismo."*
+* *"Tengo información de que todo está bajo control, aunque parezca lo contrario."*
 
 ---
 
-## 📝 Contributing
+## 📝 Contribuciones
 
-Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
+¡Se aceptan *pull requests*!
+Para cambios mayores, abre primero un issue y discutamos la propuesta.
 
 ---
 
-⭐ **Don't forget to give a star if you found this project helpful!** ⭐
+⭐ **Si este proyecto te sacó una sonrisa, deja tu estrella en GitHub.** ⭐
+
+---
