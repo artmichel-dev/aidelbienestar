@@ -144,7 +144,7 @@ Mantén siempre el tono exagerado, ideologizado y torpemente oficialista.`;
         messages: openaiMessages,
         temperature: 0.6,
         top_p: 0.9,
-        max_tokens: 100,
+        max_tokens: 150,
       }),
     });
 
@@ -166,20 +166,7 @@ Mantén siempre el tono exagerado, ideologizado y torpemente oficialista.`;
     }
 
     const data = await response.json();
-    let reply = data.choices?.[0]?.message?.content || "No sé, pero suena divertido.";
-    
-    // Recorte de longitud: 2 frases o 60 palabras como máximo, sin romper bloques de código
-    try {
-      const containsCodeBlock = reply.includes("```");
-      if (!containsCodeBlock) {
-        const sentences = reply.split(/(?<=[.!?])\s+/);
-        reply = sentences.slice(0, 2).join(" ");
-        const words = reply.split(/\s+/);
-        if (words.length > 60) {
-          reply = words.slice(0, 60).join(" ") + "…";
-        }
-      }
-    } catch {}
+    const reply = data.choices?.[0]?.message?.content || "No sé, pero suena divertido.";
     
     console.log("OpenAI response received successfully");
     return NextResponse.json({ reply });
