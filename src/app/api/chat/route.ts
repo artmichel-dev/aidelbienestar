@@ -142,8 +142,9 @@ Mantén siempre el tono exagerado, ideologizado y torpemente oficialista.`;
       body: JSON.stringify({
         model: "gpt-3.5-turbo",
         messages: openaiMessages,
-        temperature: 1.1,
-        max_tokens: 150,
+        temperature: 0.6,
+        top_p: 0.9,
+        max_tokens: 100,
       }),
     });
 
@@ -166,42 +167,17 @@ Mantén siempre el tono exagerado, ideologizado y torpemente oficialista.`;
 
     const data = await response.json();
     let reply = data.choices?.[0]?.message?.content || "No sé, pero suena divertido.";
-    let finishReason = data.choices?.[0]?.finish_reason || null;
-
-    // Auto-continuación: si OpenAI corta por límite de tokens, pedir continuación hasta 2 veces
+    
+    // Recorte de longitud: 2 frases o 60 palabras como máximo, sin romper bloques de código
     try {
-      let continuationAttempts = 0;
-      while (finishReason === "length" && continuationAttempts < 2) {
-        const continueMessages = [
-          { role: "system", content: systemPrompt },
-          ...(messages || []).map((m: ChatMessage) => ({ role: m.role, content: m.content })),
-          { role: "assistant", content: reply },
-          { role: "user", content: "Continúa donde te quedaste. Mantén el mismo estilo y formato. No repitas lo ya dicho." },
-        ];
-
-        const nextResponse = await fetch("https://api.openai.com/v1/chat/completions", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${apiKey}`,
-          },
-          body: JSON.stringify({
-            model: "gpt-3.5-turbo",
-            messages: continueMessages,
-            temperature: 0.6,
-            top_p: 0.9,
-            frequency_penalty: 0.5,
-            presence_penalty: 0.2,
-            max_tokens: 120,
-          }),
-        });
-
-        if (!nextResponse.ok) break;
-        const nextData = await nextResponse.json();
-        const segment = nextData.choices?.[0]?.message?.content || "";
-        reply = segment ? `${reply} ${segment}`.trim() : reply;
-        finishReason = nextData.choices?.[0]?.finish_reason || null;
-        continuationAttempts += 1;
+      const containsCodeBlock = reply.includes("```");
+      if (!containsCodeBlock) {
+        const sentences = reply.split(/(?<=[.!?])\s+/);
+        reply = sentences.slice(0, 2).join(" ");
+        const words = reply.split(/\s+/);
+        if (words.length > 60) {
+          reply = words.slice(0, 60).join(" ") + "…";
+        }
       }
     } catch {}
     
